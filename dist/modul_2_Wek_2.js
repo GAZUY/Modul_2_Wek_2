@@ -3,22 +3,22 @@ document.write("<p>\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043C\u0430\u0441
 document.write("<p>1 \u0412\u044B\u0432\u043E\u0434 \u0432\u0441\u0435\u0433\u043E \u0441\u043F\u0438\u0441\u043A\u0430 \u043D\u0430 \u044D\u043A\u0440\u0430\u043D \u0442\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C, \u0447\u0442\u043E\u0431\u044B \u0441\u043D\u0430\u0447\u0430\u043B\u0430\n\u0448\u043B\u0438 \u043D\u0435\u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B, \u0430 \u043F\u043E\u0442\u043E\u043C \u2013 \u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0435.</p>");
 var shoppingList = [
     {
-        name: 'yab',
+        name1: 'yab',
         quantity: 5,
         condition: 'yes'
     },
     {
-        name: 'myaso',
+        name1: 'myaso',
         quantity: 10,
         condition: 'yes'
     },
     {
-        name: 'vodka',
+        name1: 'vodka',
         quantity: 20,
-        condition: 'yes'
+        condition: 'no'
     },
     {
-        name: 'stakan',
+        name1: 'stakan',
         quantity: 3,
         condition: 'no'
     }
@@ -29,6 +29,7 @@ function printShoppingList(arr) {
     if (arr === void 0) { arr = []; }
     var a = [];
     for (var i = 0; i < arr.length; i++) {
+        // @ts-ignore
         if (arr[i].condition === 'no') {
             a.unshift(arr[i]);
         }
@@ -39,17 +40,49 @@ function printShoppingList(arr) {
     return a;
 }
 document.write("<p>\u0421\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043A\u0443\u043F\u043E\u043A \u0441 \u043D\u0435\u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u043C \u0442\u043E\u0432\u0430\u0440\u043E\u043C \u0432 \u043D\u0430\u0447\u0430\u043B\u0435</p>");
+// @ts-ignore
 document.write("<p>" + JSON.stringify(printShoppingList(shoppingList)) + "</p>");
 document.write("<hr>");
 document.write("<p>2 \u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0432 \u0441\u043F\u0438\u0441\u043E\u043A. \u0423\u0447\u0442\u0438\u0442\u0435, \u0447\u0442\u043E \u043F\u0440\u0438 \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0438\n\u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0441 \u0443\u0436\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u043C \u0432 \u0441\u043F\u0438\u0441\u043A\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u043E\u043C, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0442\u044C \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0439 \u043F\u043E\u043A\u0443\u043F\u043A\u0435,\n\u0430 \u043D\u0435 \u0434\u043E\u0431\u0430\u0432\u043B\u044F\u0442\u044C \u043D\u043E\u0432\u0443\u044E.</p>");
+var name1 = 'vodka';
+var quantity = 5;
+document.write("<p>\u0414\u043E\u0431\u0430\u0432\u0438\u043C \u043F\u0440\u043E\u0434\u0443\u043A\u0442 \"" + name1 + "\" \u0432 \u043A\u043E\u043B\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0435: " + quantity + "</p>");
+function addShoppingList(n, q) {
+    var find = false;
+    for (var _i = 0, shoppingList_1 = shoppingList; _i < shoppingList_1.length; _i++) {
+        var el = shoppingList_1[_i];
+        if (el.name1 === n) {
+            find = true;
+            el.quantity += q;
+        }
+    }
+    if (!find) {
+        shoppingList.push({
+            name1: name1,
+            quantity: quantity,
+            condition: 'no'
+        });
+    }
+    return shoppingList;
+}
+document.write("<p>" + JSON.stringify(addShoppingList(name1, quantity)) + "</p>");
+document.write("<hr>");
+document.write("<p>3 \u041F\u043E\u043A\u0443\u043F\u043A\u0430 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0430. \u0424\u0443\u043D\u043A\u0446\u0438\u044F \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u0442 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0430\n\u0438 \u043E\u0442\u043C\u0435\u0447\u0430\u0435\u0442 \u0435\u0433\u043E \u043A\u0430\u043A \u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0439.</p>");
+document.write("<p>\u041A\u0443\u043F\u0438\u043C \u043F\u0440\u043E\u0434\u0443\u043A\u0442 \"" + name1 + "\" \u0438 \u043E\u0442\u043C\u0435\u0442\u0438\u043C \u0435\u0433\u043E</p>");
+function weCelebrateThePurchase(n) {
+    for (var _i = 0, shoppingList_2 = shoppingList; _i < shoppingList_2.length; _i++) {
+        var el = shoppingList_2[_i];
+        if (el.name1 === n) {
+            el.condition = 'yes';
+        }
+    }
+    return shoppingList;
+}
+document.write("<p>" + JSON.stringify(weCelebrateThePurchase(name1)) + "</p>");
 /*
 document.write (`<p></p>`)
 
-2
-Добавление покупки в список. Учтите, что при добавлении
-покупки с уже существующим в списке продуктом, необ-
-ходимо увеличивать количество в существующей покупке,
-а не добавлять новую.
+
 3
 Покупка продукта. Функция принимает название продукта
 и отмечает его как купленный.

@@ -5,33 +5,34 @@ document.write (`<p>Создать массив «Список покупок».
 document.write (`<p>1 Вывод всего списка на экран таким образом, чтобы сначала
 шли некупленные продукты, а потом – купленные.</p>`)
 
-const shoppingList = [
+const shoppingList: any[] = [
     {
-        name: 'yab',
+        name1: 'yab',
         quantity: 5,
         condition: 'yes',
     },
     {
-        name: 'myaso',
+        name1: 'myaso',
         quantity: 10,
         condition: 'yes',
     },
     {
-        name: 'vodka',
+        name1: 'vodka',
         quantity: 20,
-        condition: 'yes',
+        condition: 'no',
     },
     {
-        name: 'stakan',
+        name1: 'stakan',
         quantity: 3,
         condition:'no',
     }
-] as any[]
+] 
 document.write (`<p>Данный список покупок</p>`)
 document.write (`<p>${JSON.stringify(shoppingList)}</p>`)
 function printShoppingList (arr = []){
     let a = []
     for (let i = 0; i < arr.length; i++ ){
+        // @ts-ignore
         if (arr[i].condition === 'no'){
             a.unshift(arr[i])
         }else{
@@ -41,12 +42,50 @@ function printShoppingList (arr = []){
     return a
 }
 document.write (`<p>Список покупок с некупленным товаром в начале</p>`)
+// @ts-ignore
 document.write (`<p>${JSON.stringify(printShoppingList (shoppingList))}</p>`)
 document.write (`<hr>`)
 
 document.write (`<p>2 Добавление покупки в список. Учтите, что при добавлении
 покупки с уже существующим в списке продуктом, необходимо увеличивать количество в существующей покупке,
 а не добавлять новую.</p>`)
+const name1 = 'vodka'
+const quantity = 5
+document.write (`<p>Добавим продукт "${name1}" в колличестве: ${quantity}</p>`)
+
+function addShoppingList(n,q) {
+    let find = false
+  for (let el of shoppingList) {
+    if (el.name1 === n) {
+      find = true
+      el.quantity += q
+    }
+  }
+  if (!find) {
+    shoppingList.push({
+      name1,
+      quantity,
+      condition: 'no'
+    })
+  }
+  return shoppingList
+}
+document.write (`<p>${JSON.stringify(addShoppingList(name1,quantity))}</p>`)
+document.write (`<hr>`)
+document.write (`<p>3 Покупка продукта. Функция принимает название продукта
+и отмечает его как купленный.</p>`)
+document.write (`<p>Купим продукт "${name1}" и отметим его</p>`)
+function weCelebrateThePurchase (n) {
+    for (let el of shoppingList) {
+        if (el.name1 === n) {
+            el.condition = 'yes'
+        }
+      }
+
+    return shoppingList
+}
+document.write (`<p>${JSON.stringify(weCelebrateThePurchase(name1))}</p>`)
+ 
 
 
 
@@ -60,11 +99,7 @@ document.write (`<p>2 Добавление покупки в список. Уч�
 /*
 document.write (`<p></p>`)
 
-2
-Добавление покупки в список. Учтите, что при добавлении
-покупки с уже существующим в списке продуктом, необ-
-ходимо увеличивать количество в существующей покупке,
-а не добавлять новую.
+
 3
 Покупка продукта. Функция принимает название продукта
 и отмечает его как купленный.
