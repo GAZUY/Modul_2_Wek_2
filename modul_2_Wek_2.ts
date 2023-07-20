@@ -85,7 +85,57 @@ function weCelebrateThePurchase (n) {
     return shoppingList
 }
 document.write (`<p>${JSON.stringify(weCelebrateThePurchase(name1))}</p>`)
- 
+document.write (`<p>========================================================================================</p>`)
+document.write (`<p>Задание 2</p>`)
+document.write (`<p>Создать массив, описывающий чек в магазине. Каждый эле-
+мент массива состоит из названия товара, количества и цены за
+единицу товара. Написать следующие функции.</p>`)
+const storeReceipt: any = [
+    {
+        product_name: 'Гайка',
+        quantity_of_goods: '20',
+        product_price: '7'
+    },
+    {
+        product_name: 'Шайба',
+        quantity_of_goods: '15',
+        product_price: '3'
+    },
+    {
+        product_name: 'Болт',
+        quantity_of_goods: '35',
+        product_price: '12'
+    },
+]
+document.write (`<p>1 Распечатка чека на экран.</p>`)
+function wePrintTheReceipt (arr:any[]) {
+    let a: string
+
+    //for (let i = 0; i < arr.length; i ++) {
+         a = '' 
+       //console.log (arr[i])
+        for (let el of arr){
+            if (el.product_name){
+                a = a +'Наименование:'+el.product_name+' '
+                //console.log (a)
+            } else if (el.quantity_of_goods) {
+                a = a + el.quantity_of_goods+'шт' 
+                //console.log (a)
+            }else{
+                a = a + el.product_price + 'за ед.'
+                //console.log (a)
+            }
+            //console.log (a)
+           // console.log (JSON.stringify(arr[i]))
+
+           console.log (a) 
+        }
+        return document.write (`<p>${a}</p>`) 
+        
+    //}
+    
+}
+wePrintTheReceipt (storeReceipt)
 
 
 
@@ -100,9 +150,7 @@ document.write (`<p>${JSON.stringify(weCelebrateThePurchase(name1))}</p>`)
 document.write (`<p></p>`)
 
 
-3
-Покупка продукта. Функция принимает название продукта
-и отмечает его как купленный.
+
 Задание 2
 Создать массив, описывающий чек в магазине. Каждый эле-
 мент массива состоит из названия товара, количества и цены за

@@ -79,13 +79,59 @@ function weCelebrateThePurchase(n) {
     return shoppingList;
 }
 document.write("<p>" + JSON.stringify(weCelebrateThePurchase(name1)) + "</p>");
+document.write("<p>========================================================================================</p>");
+document.write("<p>\u0417\u0430\u0434\u0430\u043D\u0438\u0435 2</p>");
+document.write("<p>\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043C\u0430\u0441\u0441\u0438\u0432, \u043E\u043F\u0438\u0441\u044B\u0432\u0430\u044E\u0449\u0438\u0439 \u0447\u0435\u043A \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435. \u041A\u0430\u0436\u0434\u044B\u0439 \u044D\u043B\u0435-\n\u043C\u0435\u043D\u0442 \u043C\u0430\u0441\u0441\u0438\u0432\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044F \u0442\u043E\u0432\u0430\u0440\u0430, \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u0438 \u0446\u0435\u043D\u044B \u0437\u0430\n\u0435\u0434\u0438\u043D\u0438\u0446\u0443 \u0442\u043E\u0432\u0430\u0440\u0430. \u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438.</p>");
+var storeReceipt = [
+    {
+        product_name: 'Гайка',
+        quantity_of_goods: '20',
+        product_price: '7'
+    },
+    {
+        product_name: 'Шайба',
+        quantity_of_goods: '15',
+        product_price: '3'
+    },
+    {
+        product_name: 'Болт',
+        quantity_of_goods: '35',
+        product_price: '12'
+    },
+];
+document.write("<p>1 \u0420\u0430\u0441\u043F\u0435\u0447\u0430\u0442\u043A\u0430 \u0447\u0435\u043A\u0430 \u043D\u0430 \u044D\u043A\u0440\u0430\u043D.</p>");
+function wePrintTheReceipt(arr) {
+    var a;
+    //for (let i = 0; i < arr.length; i ++) {
+    a = '';
+    //console.log (arr[i])
+    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
+        var el = arr_1[_i];
+        if (el.product_name) {
+            a = a + 'Наименование:' + el.product_name + ' ';
+            //console.log (a)
+        }
+        else if (el.quantity_of_goods) {
+            a = a + el.quantity_of_goods + 'шт';
+            //console.log (a)
+        }
+        else {
+            a = a + el.product_price + 'за ед.';
+            //console.log (a)
+        }
+        //console.log (a)
+        // console.log (JSON.stringify(arr[i]))
+        console.log(a);
+    }
+    return document.write("<p>" + a + "</p>");
+    //}
+}
+wePrintTheReceipt(storeReceipt);
 /*
 document.write (`<p></p>`)
 
 
-3
-Покупка продукта. Функция принимает название продукта
-и отмечает его как купленный.
+
 Задание 2
 Создать массив, описывающий чек в магазине. Каждый эле-
 мент массива состоит из названия товара, количества и цены за
