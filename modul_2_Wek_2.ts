@@ -232,7 +232,9 @@ class HtmlElement {
         if(this.single) {
             return`<${this.nameTag} ${this.atrs.join(` `)}value="${this.text}">`
         }else{
-            return`<${this.nameTag} ${this.atrs.join(` `)}>${this.text}</${this.nameTag}>`
+            const begin = `<${this.nameTag} ${this.atrs.join(` `)}>${this.text}`
+            const end = `</${this.nameTag}>`
+            return begin +this.elements.map(el=>el.getHtml()).join('') + end
 
         }
     }
@@ -245,4 +247,7 @@ imgElement.setStyle ('padding:10px')
 imgElement.setStyle ('margin:10px')
 imgElement.setAtr(`style="${imgElement.styles.join(';')}"`)
 console.log(imgElement.getHtml())
+pElement.appendElement(imgElement)
 console.log(pElement.getHtml())
+
+const wrapperEl = new HtmlElement ('div', false, '')

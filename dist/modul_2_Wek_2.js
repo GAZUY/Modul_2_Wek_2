@@ -209,7 +209,9 @@ var HtmlElement = /** @class */ (function () {
             return "<" + this.nameTag + " " + this.atrs.join(" ") + "value=\"" + this.text + "\">";
         }
         else {
-            return "<" + this.nameTag + " " + this.atrs.join(" ") + ">" + this.text + "</" + this.nameTag + ">";
+            var begin = "<" + this.nameTag + " " + this.atrs.join(" ") + ">" + this.text;
+            var end = "</" + this.nameTag + ">";
+            return begin + this.elements.map(function (el) { return el.getHtml(); }).join('') + end;
         }
     };
     return HtmlElement;
@@ -222,4 +224,6 @@ imgElement.setStyle('padding:10px');
 imgElement.setStyle('margin:10px');
 imgElement.setAtr("style=\"" + imgElement.styles.join(';') + "\"");
 console.log(imgElement.getHtml());
+pElement.appendElement(imgElement);
 console.log(pElement.getHtml());
+var wrapperEl = new HtmlElement('div', false, '');
