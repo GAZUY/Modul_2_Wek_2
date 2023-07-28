@@ -109,33 +109,53 @@ const storeReceipt: any = [
 ]
 document.write (`<p>1 Распечатка чека на экран.</p>`)
 function wePrintTheReceipt (arr:any[]) {
-    let a: string
-
-    //for (let i = 0; i < arr.length; i ++) {
-         a = '' 
-       //console.log (arr[i])
-        for (let el of arr){
-            if (el.product_name){
-                a = a +'Наименование:'+el.product_name+' '
-                //console.log (a)
-            } else if (el.quantity_of_goods) {
-                a = a + el.quantity_of_goods+'шт' 
-                //console.log (a)
-            }else{
-                a = a + el.product_price + 'за ед.'
-                //console.log (a)
-            }
-            //console.log (a)
-           // console.log (JSON.stringify(arr[i]))
-
-           console.log (a) 
-        }
-        return document.write (`<p>${a}</p>`) 
-        
-    //}
-    
+    for (let el of arr) {
+        document.write (`<p>Продукт: ${el.product_name} ____${el.quantity_of_goods} шт ____${el.product_price} за шт</p>`)
+    }  
 }
 wePrintTheReceipt (storeReceipt)
+document.write (`<hr>`)
+document.write (`<p>2 Подсчет общей суммы покупки.</p>`)
+function countingTheAmountOfTheCheck (arr:any[]){
+    let a: number
+    let sum: number = 0
+    for (let el of arr) {
+        a = + el.quantity_of_goods
+        sum = sum + a * (+el.product_price)
+    }
+    return sum 
+
+}
+document.write (`<p>Общая сумма покупки составит: ${countingTheAmountOfTheCheck (storeReceipt)}</p>`)
+document.write (`<hr>`)
+document.write (`<p>3 Получение самой дорогой покупки в чеке.</p>`)
+function theMostExpensivePurchase (arr:any[]) {
+    let a: number
+    let arr1: any = []
+    for (let el of arr) {
+        a = + el.quantity_of_goods
+        arr1.push( a * (+el.product_price))
+    }
+    (arr1.sort(function (a, b) { return -a + b }))
+    return arr1 [0]
+  
+}
+document.write (`<p>Самая дорогая покупка:${theMostExpensivePurchase (storeReceipt)}</p>`)
+document.write (`<hr>`)
+
+document.write (`<p>4 Подсчет средней стоимости одного товара в чеке.</p>`)
+function averageProductPrice (arr:any[]){
+    let a: number
+    let sum: number = 0
+    for (let el of arr) {
+        a = + el.quantity_of_goods
+        sum = sum + a * (+el.product_price)
+    }
+    return Math.round(sum / arr.length )
+
+}
+document.write (`<p>Средняя стоимость товара составит: ${averageProductPrice (storeReceipt)}</p>`)
+
 
 
 
@@ -151,16 +171,9 @@ document.write (`<p></p>`)
 
 
 
-Задание 2
-Создать массив, описывающий чек в магазине. Каждый эле-
-мент массива состоит из названия товара, количества и цены за
-единицу товара. Написать следующие функции.
-1
-Распечатка чека на экран.
-2
-Подсчет общей суммы покупки.
-3
-Получение самой дорогой покупки в чеке.
+
+
+
 4
 Подсчет средней стоимости одного товара в чеке.
 Задание 3

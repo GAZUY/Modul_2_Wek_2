@@ -101,47 +101,60 @@ var storeReceipt = [
 ];
 document.write("<p>1 \u0420\u0430\u0441\u043F\u0435\u0447\u0430\u0442\u043A\u0430 \u0447\u0435\u043A\u0430 \u043D\u0430 \u044D\u043A\u0440\u0430\u043D.</p>");
 function wePrintTheReceipt(arr) {
-    var a;
-    //for (let i = 0; i < arr.length; i ++) {
-    a = '';
-    //console.log (arr[i])
     for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
         var el = arr_1[_i];
-        if (el.product_name) {
-            a = a + 'Наименование:' + el.product_name + ' ';
-            //console.log (a)
-        }
-        else if (el.quantity_of_goods) {
-            a = a + el.quantity_of_goods + 'шт';
-            //console.log (a)
-        }
-        else {
-            a = a + el.product_price + 'за ед.';
-            //console.log (a)
-        }
-        //console.log (a)
-        // console.log (JSON.stringify(arr[i]))
-        console.log(a);
+        document.write("<p>\u041F\u0440\u043E\u0434\u0443\u043A\u0442: " + el.product_name + " ____" + el.quantity_of_goods + " \u0448\u0442 ____" + el.product_price + " \u0437\u0430 \u0448\u0442</p>");
     }
-    return document.write("<p>" + a + "</p>");
-    //}
 }
 wePrintTheReceipt(storeReceipt);
+document.write("<hr>");
+document.write("<p>2 \u041F\u043E\u0434\u0441\u0447\u0435\u0442 \u043E\u0431\u0449\u0435\u0439 \u0441\u0443\u043C\u043C\u044B \u043F\u043E\u043A\u0443\u043F\u043A\u0438.</p>");
+function countingTheAmountOfTheCheck(arr) {
+    var a;
+    var sum = 0;
+    for (var _i = 0, arr_2 = arr; _i < arr_2.length; _i++) {
+        var el = arr_2[_i];
+        a = +el.quantity_of_goods;
+        sum = sum + a * (+el.product_price);
+    }
+    return sum;
+}
+document.write("<p>\u041E\u0431\u0449\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0441\u043E\u0441\u0442\u0430\u0432\u0438\u0442: " + countingTheAmountOfTheCheck(storeReceipt) + "</p>");
+document.write("<hr>");
+document.write("<p>3 \u041F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0435 \u0441\u0430\u043C\u043E\u0439 \u0434\u043E\u0440\u043E\u0433\u043E\u0439 \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0432 \u0447\u0435\u043A\u0435.</p>");
+function theMostExpensivePurchase(arr) {
+    var a;
+    var arr1 = [];
+    for (var _i = 0, arr_3 = arr; _i < arr_3.length; _i++) {
+        var el = arr_3[_i];
+        a = +el.quantity_of_goods;
+        arr1.push(a * (+el.product_price));
+    }
+    (arr1.sort(function (a, b) { return -a + b; }));
+    return arr1[0];
+}
+document.write("<p>\u0421\u0430\u043C\u0430\u044F \u0434\u043E\u0440\u043E\u0433\u0430\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0430:" + theMostExpensivePurchase(storeReceipt) + "</p>");
+document.write("<hr>");
+document.write("<p>4 \u041F\u043E\u0434\u0441\u0447\u0435\u0442 \u0441\u0440\u0435\u0434\u043D\u0435\u0439 \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u0438 \u043E\u0434\u043D\u043E\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u0430 \u0432 \u0447\u0435\u043A\u0435.</p>");
+function averageProductPrice(arr) {
+    var a;
+    var sum = 0;
+    for (var _i = 0, arr_4 = arr; _i < arr_4.length; _i++) {
+        var el = arr_4[_i];
+        a = +el.quantity_of_goods;
+        sum = sum + a * (+el.product_price);
+    }
+    return Math.round(sum / arr.length);
+}
+document.write("<p>\u0421\u0440\u0435\u0434\u043D\u044F\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C \u0442\u043E\u0432\u0430\u0440\u0430 \u0441\u043E\u0441\u0442\u0430\u0432\u0438\u0442: " + averageProductPrice(storeReceipt) + "</p>");
 /*
 document.write (`<p></p>`)
 
 
 
-Задание 2
-Создать массив, описывающий чек в магазине. Каждый эле-
-мент массива состоит из названия товара, количества и цены за
-единицу товара. Написать следующие функции.
-1
-Распечатка чека на экран.
-2
-Подсчет общей суммы покупки.
-3
-Получение самой дорогой покупки в чеке.
+
+
+
 4
 Подсчет средней стоимости одного товара в чеке.
 Задание 3
