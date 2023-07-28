@@ -203,3 +203,46 @@ document.write (`<p></p>`)
 Функция сортировки аудиторий по названию (по алфа-
 виту).
 */
+
+class HtmlElement {
+    nameTag:string
+    single: boolean
+    text: string
+    atrs: string[] = []
+    styles: string[] = []
+    elements: HtmlElement[]
+    constructor(nameTag:string,single: boolean,text: string){
+        this.nameTag = nameTag
+        this.single = single
+        this.text = text
+    }
+    setAtr(atr: string) {
+        this.atrs.push (atr)
+    }
+    setStyle (style: string) {
+        this.styles.push(style)
+    }
+    appendElement(element: HtmlElement){
+        this.elements.push(element)
+    }
+    prependElement(element: HtmlElement){
+        this.elements.unshift(element)
+    }
+    getHtml(){
+        if(this.single) {
+            return`<${this.nameTag} ${this.atrs.join(` `)}value="${this.text}">`
+        }else{
+            return`<${this.nameTag} ${this.atrs.join(` `)}>${this.text}</${this.nameTag}>`
+
+        }
+    }
+}
+const imgElement = new HtmlElement('img', true, '')
+const pElement = new HtmlElement ('p', false, 'dfjgkhh')
+imgElement.setAtr('id="img"')
+imgElement.setStyle('color:red')
+imgElement.setStyle ('padding:10px')
+imgElement.setStyle ('margin:10px')
+imgElement.setAtr(`style="${imgElement.styles.join(';')}"`)
+console.log(imgElement.getHtml())
+console.log(pElement.getHtml())

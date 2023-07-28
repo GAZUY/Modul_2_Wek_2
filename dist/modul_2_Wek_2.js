@@ -183,4 +183,43 @@ document.write (`<p></p>`)
 5
 Функция сортировки аудиторий по названию (по алфа-
 виту).
-*/ 
+*/
+var HtmlElement = /** @class */ (function () {
+    function HtmlElement(nameTag, single, text) {
+        this.atrs = [];
+        this.styles = [];
+        this.nameTag = nameTag;
+        this.single = single;
+        this.text = text;
+    }
+    HtmlElement.prototype.setAtr = function (atr) {
+        this.atrs.push(atr);
+    };
+    HtmlElement.prototype.setStyle = function (style) {
+        this.styles.push(style);
+    };
+    HtmlElement.prototype.appendElement = function (element) {
+        this.elements.push(element);
+    };
+    HtmlElement.prototype.prependElement = function (element) {
+        this.elements.unshift(element);
+    };
+    HtmlElement.prototype.getHtml = function () {
+        if (this.single) {
+            return "<" + this.nameTag + " " + this.atrs.join(" ") + "value=\"" + this.text + "\">";
+        }
+        else {
+            return "<" + this.nameTag + " " + this.atrs.join(" ") + ">" + this.text + "</" + this.nameTag + ">";
+        }
+    };
+    return HtmlElement;
+}());
+var imgElement = new HtmlElement('img', true, '');
+var pElement = new HtmlElement('p', false, 'dfjgkhh');
+imgElement.setAtr('id="img"');
+imgElement.setStyle('color:red');
+imgElement.setStyle('padding:10px');
+imgElement.setStyle('margin:10px');
+imgElement.setAtr("style=\"" + imgElement.styles.join(';') + "\"");
+console.log(imgElement.getHtml());
+console.log(pElement.getHtml());
