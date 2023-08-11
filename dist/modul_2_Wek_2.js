@@ -148,7 +148,7 @@ function averageProductPrice(arr) {
 }
 document.write("<p>\u0421\u0440\u0435\u0434\u043D\u044F\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C \u0442\u043E\u0432\u0430\u0440\u0430 \u0441\u043E\u0441\u0442\u0430\u0432\u0438\u0442: " + averageProductPrice(storeReceipt) + "</p>");
 /*
-document.write (`<p></p>`)
+document.write (`<p>${}</p>`)
 
 
 
@@ -185,10 +185,11 @@ document.write (`<p></p>`)
 виту).
 */
 var HtmlElement = /** @class */ (function () {
-    function HtmlElement(nameTag, single, text) {
+    function HtmlElement(tag, single, text) {
         this.atrs = [];
         this.styles = [];
-        this.nameTag = nameTag;
+        this.elements = [];
+        this.tag = tag;
         this.single = single;
         this.text = text;
     }
@@ -206,24 +207,34 @@ var HtmlElement = /** @class */ (function () {
     };
     HtmlElement.prototype.getHtml = function () {
         if (this.single) {
-            return "<" + this.nameTag + " " + this.atrs.join(" ") + "value=\"" + this.text + "\">";
+            return "<" + this.tag + " " + this.atrs.join(' ') + " value = '" + this.text + "'>";
         }
         else {
-            var begin = "<" + this.nameTag + " " + this.atrs.join(" ") + ">" + this.text;
-            var end = "</" + this.nameTag + ">";
+            var begin = "<" + this.tag + " " + this.atrs.join(' ') + ">" + this.text;
+            var end = "</" + this.tag + ">";
             return begin + this.elements.map(function (el) { return el.getHtml(); }).join('') + end;
         }
     };
     return HtmlElement;
 }());
 var imgElement = new HtmlElement('img', true, '');
-var pElement = new HtmlElement('p', false, 'dfjgkhh');
-imgElement.setAtr('id="img"');
-imgElement.setStyle('color:red');
-imgElement.setStyle('padding:10px');
-imgElement.setStyle('margin:10px');
-imgElement.setAtr("style=\"" + imgElement.styles.join(';') + "\"");
-console.log(imgElement.getHtml());
-pElement.appendElement(imgElement);
-console.log(pElement.getHtml());
-var wrapperEl = new HtmlElement('div', false, '');
+imgElement.setAtr('style="width:100%"');
+imgElement.setAtr('src="https://ecalc.ru/images/krug/radius.png"');
+var pElement = new HtmlElement('p', false, 'вася');
+var h3Element = new HtmlElement('h3', false, 'тормоз');
+var divElement = new HtmlElement('div', false, '');
+divElement.setAtr('style="width:300px; margin:10px"');
+var wrapperElement = new HtmlElement('div', false, '');
+wrapperElement.setAtr('id="wrapper"');
+wrapperElement.setStyle('display: flex');
+wrapperElement.setStyle('padding: 40px');
+wrapperElement.setAtr("style=\"" + wrapperElement.styles.join(';') + "\"");
+wrapperElement.appendElement(divElement);
+wrapperElement.appendElement(divElement);
+divElement.appendElement(h3Element);
+divElement.appendElement(imgElement);
+divElement.appendElement(pElement);
+console.log(wrapperElement.getHtml());
+var divPrintElements = document.querySelector('.printElements');
+if (divPrintElements)
+    divPrintElements.innerHTML = wrapperElement.getHtml();

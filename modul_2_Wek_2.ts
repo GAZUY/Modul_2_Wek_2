@@ -167,7 +167,7 @@ document.write (`<p>Средняя стоимость товара состав�
 
 
 /*
-document.write (`<p></p>`)
+document.write (`<p>${}</p>`)
 
 
 
@@ -205,49 +205,64 @@ document.write (`<p></p>`)
 */
 
 class HtmlElement {
-    nameTag:string
+    tag: string
     single: boolean
     text: string
     atrs: string[] = []
     styles: string[] = []
-    elements: HtmlElement[]
-    constructor(nameTag:string,single: boolean,text: string){
-        this.nameTag = nameTag
-        this.single = single
-        this.text = text
+    elements: HtmlElement[] = []
+    constructor(tag:string, single: boolean, text: string){
+      this.tag = tag
+      this.single = single
+      this.text = text
     }
+  
     setAtr(atr: string) {
-        this.atrs.push (atr)
+      this.atrs.push(atr)
     }
-    setStyle (style: string) {
-        this.styles.push(style)
+    setStyle(style: string) {
+      this.styles.push(style)
     }
-    appendElement(element: HtmlElement){
-        this.elements.push(element)
+    appendElement(element: HtmlElement) {
+      this.elements.push(element)
     }
-    prependElement(element: HtmlElement){
-        this.elements.unshift(element)
+    prependElement(element: HtmlElement) {
+      this.elements.unshift(element)
     }
-    getHtml(){
-        if(this.single) {
-            return`<${this.nameTag} ${this.atrs.join(` `)}value="${this.text}">`
-        }else{
-            const begin = `<${this.nameTag} ${this.atrs.join(` `)}>${this.text}`
-            const end = `</${this.nameTag}>`
-            return begin +this.elements.map(el=>el.getHtml()).join('') + end
+  
+    getHtml() {
+      if (this.single) {
+        return `<${this.tag} ${this.atrs.join(' ')} value = '${this.text}'>`
+      } else {
+        const begin = `<${this.tag} ${this.atrs.join(' ')}>${this.text}`
+        const end = `</${this.tag}>`
+        return begin + this.elements.map(el=>el.getHtml()).join('') + end
+      }     
+    }
+  }
+  
+  const imgElement = new HtmlElement('img', true, '')
+  imgElement.setAtr('style="width:100%"')
+  imgElement.setAtr('src="https://ecalc.ru/images/krug/radius.png"')
+  
+  const pElement = new HtmlElement('p', false, 'вася')
+  const h3Element = new HtmlElement('h3', false, 'тормоз')
+  
+  const divElement = new HtmlElement('div', false, '')
+  divElement.setAtr('style="width:300px; margin:10px"')
+  const wrapperElement = new HtmlElement('div', false, '')
+  wrapperElement.setAtr('id="wrapper"')
+  wrapperElement.setStyle('display: flex')
+  wrapperElement.setStyle('padding: 40px')
+  wrapperElement.setAtr(`style="${wrapperElement.styles.join(';')}"`)
+  wrapperElement.appendElement(divElement)
+  wrapperElement.appendElement(divElement)
+  divElement.appendElement(h3Element)
+  divElement.appendElement(imgElement)
+  divElement.appendElement(pElement)
 
-        }
-    }
-}
-const imgElement = new HtmlElement('img', true, '')
-const pElement = new HtmlElement ('p', false, 'dfjgkhh')
-imgElement.setAtr('id="img"')
-imgElement.setStyle('color:red')
-imgElement.setStyle ('padding:10px')
-imgElement.setStyle ('margin:10px')
-imgElement.setAtr(`style="${imgElement.styles.join(';')}"`)
-console.log(imgElement.getHtml())
-pElement.appendElement(imgElement)
-console.log(pElement.getHtml())
+  console.log (wrapperElement.getHtml())
 
-const wrapperEl = new HtmlElement ('div', false, '')
+  
+  const divPrintElements = document.querySelector('.printElements')
+  if (divPrintElements) divPrintElements.innerHTML = wrapperElement.getHtml()
