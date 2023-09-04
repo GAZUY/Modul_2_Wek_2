@@ -215,6 +215,29 @@ document.write (`<p>${}</p>`)
 Функция сортировки аудиторий по названию (по алфа-
 виту).
 */
+/*
+Задание 2
+Реализовать класс, описывающий html элемент.
+Класс HtmlElement должен содержать внутри себя:
+■■ название тега;
+■■ самозакрывающийся тег или нет;
+■■ текстовое содержимое;
+■■ массив атрибутов;
+■■ массив стилей;
+■■ массив вложенных таких же тегов;
+2
+Домашнее задание №4
+■■ метод для установки атрибута;
+■■ метод для установки стиля;
+■■ метод для добавления вложенного элемента в конец теку-
+щего элемента;
+■■ метод для добавления вложенного элемента в начало те-
+кущего элемента;
+■■ метод getHtml(), который возвращает html код в виде
+строки, включая html код вложенных элементов.
+С помощью написанного класса реализовать следующий блок
+и добавить его на страницу с помощью document.write().
+*/
 var HtmlElement = /** @class */ (function () {
     function HtmlElement(tag, single, text) {
         this.atrs = [];
@@ -269,3 +292,66 @@ console.log(wrapperElement.getHtml());
 var divPrintElements = document.querySelector('.printElements');
 if (divPrintElements)
     divPrintElements.innerHTML = wrapperElement.getHtml();
+/*
+  Реализовать класс, который описывает css класс.
+Класс CssClass должен содержать внутри себя:
+■■ название css класса;
+■■ массив стилей;
+■■ метод для установки стиля;
+■■ метод для удаления стиля;
+■■ метод getCss(), который возвращает css код в виде стро-
+ки.
+*/
+var CssClass = /** @class */ (function () {
+    function CssClass(name) {
+        this.cssStyle = [];
+        this.name = name;
+    }
+    CssClass.prototype.addCssStyle = function (cssStyle) {
+        this.cssStyle.push(cssStyle);
+    };
+    CssClass.prototype.deleteCssStyle = function (cssStyle) {
+        var id = this.cssStyle.findIndex(function (el) { el == cssStyle; });
+        if (id != -1)
+            this.cssStyle.splice(id, 1);
+    };
+    CssClass.prototype.getCss = function () {
+        return "." + this.name + " {" + this.cssStyle.join(';') + "};";
+    };
+    return CssClass;
+}());
+var wrapCssClass = new CssClass('wrap');
+wrapCssClass.addCssStyle('display:flex');
+console.log(wrapCssClass.getCss());
+var blockCssClass = new CssClass('block');
+blockCssClass.addCssStyle('width:300px');
+blockCssClass.addCssStyle(' margin:10px');
+console.log(blockCssClass.getCss());
+/*
+Реализовать класс, описывающий блок html документ.
+Класс HtmlBlock должен содержать внутри себя:
+■■ коллекцию стилей, описанных с помощью класса CssClass;
+■■ корневой элемент, описанный с помощью класса
+HtmlElement;
+■■ метод getCode(), который возвращает строку с html ко-
+дом (сначала теги style с описанием всех классов, а потом
+все html содержимое из корневого тега и его вложенных
+элементов).
+С помощью написанных классов реализовать следующий блок
+(см. рис. 2) и добавить его на страницу с помощью document.write().*/
+var HtmlBlock = /** @class */ (function () {
+    function HtmlBlock(ArrCss) {
+        this.ArrCss = [];
+        this.HtmlElementBlock = [];
+        this.ArrCss = ArrCss;
+        // this.HtmlElementBlock = HtmlElementBlock
+    }
+    HtmlBlock.prototype.addArrCss = function (object) {
+        this.ArrCss.push(object);
+    };
+    HtmlBlock.prototype.getCode = function (Arrcss) {
+        return "<style>" + this.ArrCss + "</style>";
+    };
+    return HtmlBlock;
+}());
+var qwe = new HtmlBlock(blockCssClass.getCss());
