@@ -354,4 +354,4 @@ var HtmlBlock = /** @class */ (function () {
     };
     return HtmlBlock;
 }());
-var qwe = new HtmlBlock(blockCssClass.getCss());
+//const qwe = new HtmlBlock(blockCssClass.getCss())
