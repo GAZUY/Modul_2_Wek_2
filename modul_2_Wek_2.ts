@@ -421,3 +421,11 @@ console.log(storeReceipt.map((el)=>el.product_name).sort((a,b)=>a.localeCompare(
 console.log(storeReceipt.map((el)=>{
   return `${el.product_name} ${el.quantity_of_goods} штук по цене ${el.product_price} руб`
 }).sort((a,b)=>a.localeCompare(b)))
+
+const sumPrice = storeReceipt.reduce((a,el)=>a+=el.quantity_of_goods*el.product_price,0)
+console.log(sumPrice)
+const storeObject = storeReceipt.reduce((a,el)=>{
+  a[el.product_name]=el
+  return a
+},{} as any)
+console.log(storeObject)

@@ -385,3 +385,10 @@ console.log(storeReceipt.map(function (el) { return el.product_name; }).sort(fun
 console.log(storeReceipt.map(function (el) {
     return el.product_name + " " + el.quantity_of_goods + " \u0448\u0442\u0443\u043A \u043F\u043E \u0446\u0435\u043D\u0435 " + el.product_price + " \u0440\u0443\u0431";
 }).sort(function (a, b) { return a.localeCompare(b); }));
+var sumPrice = storeReceipt.reduce(function (a, el) { return a += el.quantity_of_goods * el.product_price; }, 0);
+console.log(sumPrice);
+var storeObject = storeReceipt.reduce(function (a, el) {
+    a[el.product_name] = el;
+    return a;
+}, {});
+console.log(storeObject);
