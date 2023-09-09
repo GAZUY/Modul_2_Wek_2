@@ -1,3 +1,10 @@
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 document.write("<p>\u0417\u0430\u0434\u0430\u043D\u0438\u0435 1</p>");
 document.write("<p>\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043C\u0430\u0441\u0441\u0438\u0432 \u00AB\u0421\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043A\u0443\u043F\u043E\u043A\u00BB. \u041A\u0430\u0436\u0434\u044B\u0439 \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u043C\u0430\u0441\u0441\u0438\u0432\u0430 \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043E\u0431\u044A\u0435\u043A\u0442\u043E\u043C, \n\u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0430, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0438 \u043A\u0443\u043F\u043B\u0435\u043D \u0438\u043B\u0438 \u043D\u0435\u0442. \u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0444\u0443\u043D\u043A-\n\u0446\u0438\u0439 \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0442\u0430\u043A\u0438\u043C \u043C\u0430\u0441\u0441\u0438\u0432\u043E\u043C.</p>");
 document.write("<p>1 \u0412\u044B\u0432\u043E\u0434 \u0432\u0441\u0435\u0433\u043E \u0441\u043F\u0438\u0441\u043A\u0430 \u043D\u0430 \u044D\u043A\u0440\u0430\u043D \u0442\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C, \u0447\u0442\u043E\u0431\u044B \u0441\u043D\u0430\u0447\u0430\u043B\u0430\n\u0448\u043B\u0438 \u043D\u0435\u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B, \u0430 \u043F\u043E\u0442\u043E\u043C \u2013 \u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0435.</p>");
@@ -82,71 +89,67 @@ document.write("<p>" + JSON.stringify(weCelebrateThePurchase(name1)) + "</p>");
 document.write("<p>========================================================================================</p>");
 document.write("<p>\u0417\u0430\u0434\u0430\u043D\u0438\u0435 2</p>");
 document.write("<p>\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043C\u0430\u0441\u0441\u0438\u0432, \u043E\u043F\u0438\u0441\u044B\u0432\u0430\u044E\u0449\u0438\u0439 \u0447\u0435\u043A \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435. \u041A\u0430\u0436\u0434\u044B\u0439 \u044D\u043B\u0435-\n\u043C\u0435\u043D\u0442 \u043C\u0430\u0441\u0441\u0438\u0432\u0430 \u0441\u043E\u0441\u0442\u043E\u0438\u0442 \u0438\u0437 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044F \u0442\u043E\u0432\u0430\u0440\u0430, \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430 \u0438 \u0446\u0435\u043D\u044B \u0437\u0430\n\u0435\u0434\u0438\u043D\u0438\u0446\u0443 \u0442\u043E\u0432\u0430\u0440\u0430. \u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0435 \u0444\u0443\u043D\u043A\u0446\u0438\u0438.</p>");
-var storeReceipt = [
-    {
-        product_name: 'Гайка',
-        quantity_of_goods: '20',
-        product_price: '7'
-    },
-    {
-        product_name: 'Шайба',
-        quantity_of_goods: '15',
-        product_price: '3'
-    },
-    {
-        product_name: 'Болт',
-        quantity_of_goods: '35',
-        product_price: '12'
-    },
-];
-document.write("<p>1 \u0420\u0430\u0441\u043F\u0435\u0447\u0430\u0442\u043A\u0430 \u0447\u0435\u043A\u0430 \u043D\u0430 \u044D\u043A\u0440\u0430\u043D.</p>");
-function wePrintTheReceipt(arr) {
-    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
-        var el = arr_1[_i];
-        document.write("<p>\u041F\u0440\u043E\u0434\u0443\u043A\u0442: " + el.product_name + " ____" + el.quantity_of_goods + " \u0448\u0442 ____" + el.product_price + " \u0437\u0430 \u0448\u0442</p>");
-    }
-}
-wePrintTheReceipt(storeReceipt);
-document.write("<hr>");
-document.write("<p>2 \u041F\u043E\u0434\u0441\u0447\u0435\u0442 \u043E\u0431\u0449\u0435\u0439 \u0441\u0443\u043C\u043C\u044B \u043F\u043E\u043A\u0443\u043F\u043A\u0438.</p>");
-function countingTheAmountOfTheCheck(arr) {
-    var a;
-    var sum = 0;
-    for (var _i = 0, arr_2 = arr; _i < arr_2.length; _i++) {
-        var el = arr_2[_i];
-        a = +el.quantity_of_goods;
-        sum = sum + a * (+el.product_price);
-    }
-    return sum;
-}
-document.write("<p>\u041E\u0431\u0449\u0430\u044F \u0441\u0443\u043C\u043C\u0430 \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0441\u043E\u0441\u0442\u0430\u0432\u0438\u0442: " + countingTheAmountOfTheCheck(storeReceipt) + "</p>");
-document.write("<hr>");
-document.write("<p>3 \u041F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0435 \u0441\u0430\u043C\u043E\u0439 \u0434\u043E\u0440\u043E\u0433\u043E\u0439 \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0432 \u0447\u0435\u043A\u0435.</p>");
-function theMostExpensivePurchase(arr) {
-    var a;
-    var arr1 = [];
-    for (var _i = 0, arr_3 = arr; _i < arr_3.length; _i++) {
-        var el = arr_3[_i];
-        a = +el.quantity_of_goods;
-        arr1.push(a * (+el.product_price));
-    }
-    (arr1.sort(function (a, b) { return -a + b; }));
-    return arr1[0];
-}
-document.write("<p>\u0421\u0430\u043C\u0430\u044F \u0434\u043E\u0440\u043E\u0433\u0430\u044F \u043F\u043E\u043A\u0443\u043F\u043A\u0430:" + theMostExpensivePurchase(storeReceipt) + "</p>");
-document.write("<hr>");
-document.write("<p>4 \u041F\u043E\u0434\u0441\u0447\u0435\u0442 \u0441\u0440\u0435\u0434\u043D\u0435\u0439 \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u0438 \u043E\u0434\u043D\u043E\u0433\u043E \u0442\u043E\u0432\u0430\u0440\u0430 \u0432 \u0447\u0435\u043A\u0435.</p>");
-function averageProductPrice(arr) {
-    var a;
-    var sum = 0;
-    for (var _i = 0, arr_4 = arr; _i < arr_4.length; _i++) {
-        var el = arr_4[_i];
-        a = +el.quantity_of_goods;
-        sum = sum + a * (+el.product_price);
-    }
-    return Math.round(sum / arr.length);
-}
-document.write("<p>\u0421\u0440\u0435\u0434\u043D\u044F\u044F \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C \u0442\u043E\u0432\u0430\u0440\u0430 \u0441\u043E\u0441\u0442\u0430\u0432\u0438\u0442: " + averageProductPrice(storeReceipt) + "</p>");
+// const storeReceipt: any = [
+//     {
+//         product_name: 'Гайка',
+//         quantity_of_goods: '20',
+//         product_price: '7'
+//     },
+//     {
+//         product_name: 'Шайба',
+//         quantity_of_goods: '15',
+//         product_price: '3'
+//     },
+//     {
+//         product_name: 'Болт',
+//         quantity_of_goods: '35',
+//         product_price: '12'
+//     },
+// ]
+// document.write (`<p>1 Распечатка чека на экран.</p>`)
+// function wePrintTheReceipt (arr:any[]) {
+//     for (let el of arr) {
+//         document.write (`<p>Продукт: ${el.product_name} ____${el.quantity_of_goods} шт ____${el.product_price} за шт</p>`)
+//     }  
+// }
+// wePrintTheReceipt (storeReceipt)
+// document.write (`<hr>`)
+// document.write (`<p>2 Подсчет общей суммы покупки.</p>`)
+// function countingTheAmountOfTheCheck (arr:any[]){
+//     let a: number
+//     let sum: number = 0
+//     for (let el of arr) {
+//         a = + el.quantity_of_goods
+//         sum = sum + a * (+el.product_price)
+//     }
+//     return sum 
+// }
+// document.write (`<p>Общая сумма покупки составит: ${countingTheAmountOfTheCheck (storeReceipt)}</p>`)
+// document.write (`<hr>`)
+// document.write (`<p>3 Получение самой дорогой покупки в чеке.</p>`)
+// function theMostExpensivePurchase (arr:any[]) {
+//     let a: number
+//     let arr1: any = []
+//     for (let el of arr) {
+//         a = + el.quantity_of_goods
+//         arr1.push( a * (+el.product_price))
+//     }
+//     (arr1.sort(function (a, b) { return -a + b }))
+//     return arr1 [0]
+// }
+// document.write (`<p>Самая дорогая покупка:${theMostExpensivePurchase (storeReceipt)}</p>`)
+// document.write (`<hr>`)
+// document.write (`<p>4 Подсчет средней стоимости одного товара в чеке.</p>`)
+// function averageProductPrice (arr:any[]){
+//     let a: number
+//     let sum: number = 0
+//     for (let el of arr) {
+//         a = + el.quantity_of_goods
+//         sum = sum + a * (+el.product_price)
+//     }
+//     return Math.round(sum / arr.length )
+// }
+// document.write (`<p>Средняя стоимость товара составит: ${averageProductPrice (storeReceipt)}</p>`)
 document.write("<p>========================================================================================</p>");
 document.write("<p>\u0417\u0430\u0434\u0430\u043D\u0438\u0435 3</p>");
 document.write("<p>\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043C\u0430\u0441\u0441\u0438\u0432 css-\u0441\u0442\u0438\u043B\u0435\u0439 (\u0446\u0432\u0435\u0442, \u0440\u0430\u0437\u043C\u0435\u0440 \u0448\u0440\u0438\u0444\u0442\u0430, \u0432\u044B\u0440\u0430\u0432\u043D\u0438\u0432\u0430\u043D\u0438\u0435, \u043F\u043E\u0434\u0447\u0435\u0440\u043A\u0438\u0432\u0430\u043D\u0438\u0435 \u0438 \u0442. \u0434.). \u041A\u0430\u0436\u0434\u044B\u0439 \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u043C\u0430\u0441\u0441\u0438\u0432\u0430 \u2013 \u044D\u0442\u043E \u043E\u0431\u044A\u0435\u043A\u0442, \u0441\u043E\u0441\u0442\u043E\u044F\u0449\u0438\u0439 \u0438\u0437 \u0434\u0432\u0443\u0445 \u0441\u0432\u043E\u0439\u0441\u0442\u0432: \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0441\u0442\u0438\u043B\u044F \u0438 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435 \u0441\u0442\u0438\u043B\u044F. \u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u0444\u0443\u043D\u043A\u0446\u0438\u044E, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u0442 \u043C\u0430\u0441\u0441\u0438\u0432 \u0441\u0442\u0438\u043B\u0435\u0439 \u0438 \u0442\u0435\u043A\u0441\u0442, \u0438 \u0432\u044B\u0432\u043E\u0434\u0438\u0442 \u044D\u0442\u043E\u0442 \u0442\u0435\u043A\u0441\u0442 \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E document.write() \u0432 \u0442\u0435\u0433\u0430\u0445 <p></p>, \u0434\u043E\u0431\u0430\u0432\u0438\u0432 \u0432 \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u044E\u0449\u0438\u0439 \u0442\u0435\u0433 \u0430\u0442\u0440\u0438\u0431\u0443\u0442 style \u0441\u043E \u0432\u0441\u0435\u043C\u0438 \u0441\u0442\u0438\u043B\u044F\u043C\u0438, \u043F\u0435\u0440\u0435\u0447\u0438\u0441\u043B\u0435\u043D\u043D\u044B\u043C\u0438 \u0432 \u043C\u0430\u0441\u0441\u0438\u0432\u0435.</p>");
@@ -174,8 +177,8 @@ var styleCss = [
 ];
 function outputTextWithStyles(arr, a) {
     var s = '';
-    for (var _i = 0, arr_5 = arr; _i < arr_5.length; _i++) {
-        var el = arr_5[_i];
+    for (var _i = 0, arr_1 = arr; _i < arr_1.length; _i++) {
+        var el = arr_1[_i];
         if (el.styleName) {
             s = s + el.styleName + ':';
         }
@@ -417,3 +420,37 @@ var HtmlBlock = /** @class */ (function () {
     return HtmlBlock;
 }());
 //const qwe = new HtmlBlock(blockCssClass.getCss())
+var storeReceipt = [
+    {
+        product_name: 'гайка',
+        quantity_of_goods: 20,
+        product_price: 7
+    },
+    {
+        product_name: 'шайба',
+        quantity_of_goods: 15,
+        product_price: 3
+    },
+    {
+        product_name: 'болт',
+        quantity_of_goods: 35,
+        product_price: 12
+    },
+];
+storeReceipt.sort(function (a, b) { return a.product_name.localeCompare(b.product_name); });
+console.log(__spreadArrays(storeReceipt));
+storeReceipt.sort(function (a, b) { return a.quantity_of_goods - b.quantity_of_goods; });
+console.log(__spreadArrays(storeReceipt));
+storeReceipt.sort(function (a, b) { return a.product_price - b.product_price; });
+console.log(__spreadArrays(storeReceipt));
+console.log(storeReceipt.map(function (el) { return el.product_name; }).sort(function (a, b) { return a.localeCompare(b); }));
+console.log(storeReceipt.map(function (el) {
+    return el.product_name + " " + el.quantity_of_goods + " \u0448\u0442\u0443\u043A \u043F\u043E \u0446\u0435\u043D\u0435 " + el.product_price + " \u0440\u0443\u0431";
+}).sort(function (a, b) { return a.localeCompare(b); }));
+var sumPrice = storeReceipt.reduce(function (a, el) { return a += el.quantity_of_goods * el.product_price; }, 0);
+console.log(sumPrice);
+var storeObject = storeReceipt.reduce(function (a, el) {
+    a[el.product_name] = el;
+    return a;
+}, {});
+console.log(storeObject);

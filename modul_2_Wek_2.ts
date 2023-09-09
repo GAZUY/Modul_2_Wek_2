@@ -90,71 +90,71 @@ document.write (`<p>Задание 2</p>`)
 document.write (`<p>Создать массив, описывающий чек в магазине. Каждый эле-
 мент массива состоит из названия товара, количества и цены за
 единицу товара. Написать следующие функции.</p>`)
-const storeReceipt: any = [
-    {
-        product_name: 'Гайка',
-        quantity_of_goods: '20',
-        product_price: '7'
-    },
-    {
-        product_name: 'Шайба',
-        quantity_of_goods: '15',
-        product_price: '3'
-    },
-    {
-        product_name: 'Болт',
-        quantity_of_goods: '35',
-        product_price: '12'
-    },
-]
-document.write (`<p>1 Распечатка чека на экран.</p>`)
-function wePrintTheReceipt (arr:any[]) {
-    for (let el of arr) {
-        document.write (`<p>Продукт: ${el.product_name} ____${el.quantity_of_goods} шт ____${el.product_price} за шт</p>`)
-    }  
-}
-wePrintTheReceipt (storeReceipt)
-document.write (`<hr>`)
-document.write (`<p>2 Подсчет общей суммы покупки.</p>`)
-function countingTheAmountOfTheCheck (arr:any[]){
-    let a: number
-    let sum: number = 0
-    for (let el of arr) {
-        a = + el.quantity_of_goods
-        sum = sum + a * (+el.product_price)
-    }
-    return sum 
+// const storeReceipt: any = [
+//     {
+//         product_name: 'Гайка',
+//         quantity_of_goods: '20',
+//         product_price: '7'
+//     },
+//     {
+//         product_name: 'Шайба',
+//         quantity_of_goods: '15',
+//         product_price: '3'
+//     },
+//     {
+//         product_name: 'Болт',
+//         quantity_of_goods: '35',
+//         product_price: '12'
+//     },
+// ]
+// document.write (`<p>1 Распечатка чека на экран.</p>`)
+// function wePrintTheReceipt (arr:any[]) {
+//     for (let el of arr) {
+//         document.write (`<p>Продукт: ${el.product_name} ____${el.quantity_of_goods} шт ____${el.product_price} за шт</p>`)
+//     }  
+// }
+// wePrintTheReceipt (storeReceipt)
+// document.write (`<hr>`)
+// document.write (`<p>2 Подсчет общей суммы покупки.</p>`)
+// function countingTheAmountOfTheCheck (arr:any[]){
+//     let a: number
+//     let sum: number = 0
+//     for (let el of arr) {
+//         a = + el.quantity_of_goods
+//         sum = sum + a * (+el.product_price)
+//     }
+//     return sum 
 
-}
-document.write (`<p>Общая сумма покупки составит: ${countingTheAmountOfTheCheck (storeReceipt)}</p>`)
-document.write (`<hr>`)
-document.write (`<p>3 Получение самой дорогой покупки в чеке.</p>`)
-function theMostExpensivePurchase (arr:any[]) {
-    let a: number
-    let arr1: any = []
-    for (let el of arr) {
-        a = + el.quantity_of_goods
-        arr1.push( a * (+el.product_price))
-    }
-    (arr1.sort(function (a, b) { return -a + b }))
-    return arr1 [0]
+// }
+// document.write (`<p>Общая сумма покупки составит: ${countingTheAmountOfTheCheck (storeReceipt)}</p>`)
+// document.write (`<hr>`)
+// document.write (`<p>3 Получение самой дорогой покупки в чеке.</p>`)
+// function theMostExpensivePurchase (arr:any[]) {
+//     let a: number
+//     let arr1: any = []
+//     for (let el of arr) {
+//         a = + el.quantity_of_goods
+//         arr1.push( a * (+el.product_price))
+//     }
+//     (arr1.sort(function (a, b) { return -a + b }))
+//     return arr1 [0]
   
-}
-document.write (`<p>Самая дорогая покупка:${theMostExpensivePurchase (storeReceipt)}</p>`)
-document.write (`<hr>`)
+// }
+// document.write (`<p>Самая дорогая покупка:${theMostExpensivePurchase (storeReceipt)}</p>`)
+// document.write (`<hr>`)
 
-document.write (`<p>4 Подсчет средней стоимости одного товара в чеке.</p>`)
-function averageProductPrice (arr:any[]){
-    let a: number
-    let sum: number = 0
-    for (let el of arr) {
-        a = + el.quantity_of_goods
-        sum = sum + a * (+el.product_price)
-    }
-    return Math.round(sum / arr.length )
+// document.write (`<p>4 Подсчет средней стоимости одного товара в чеке.</p>`)
+// function averageProductPrice (arr:any[]){
+//     let a: number
+//     let sum: number = 0
+//     for (let el of arr) {
+//         a = + el.quantity_of_goods
+//         sum = sum + a * (+el.product_price)
+//     }
+//     return Math.round(sum / arr.length )
 
-}
-document.write (`<p>Средняя стоимость товара составит: ${averageProductPrice (storeReceipt)}</p>`)
+// }
+// document.write (`<p>Средняя стоимость товара составит: ${averageProductPrice (storeReceipt)}</p>`)
 
 document.write (`<p>========================================================================================</p>`)
 document.write (`<p>Задание 3</p>`)
@@ -464,3 +464,45 @@ class HtmlBlock {
 
 }
 //const qwe = new HtmlBlock(blockCssClass.getCss())
+
+
+
+
+
+let storeReceipt = [
+  {
+      product_name: 'гайка',
+      quantity_of_goods: 20,
+      product_price: 7
+  },
+  {
+      product_name: 'шайба',
+      quantity_of_goods: 15,
+      product_price: 3
+  },
+  {
+      product_name: 'болт',
+      quantity_of_goods: 35,
+      product_price: 12
+  },
+] as Record<string,any>[]
+
+storeReceipt.sort((a,b)=>a.product_name.localeCompare(b.product_name))
+console.log([...storeReceipt])
+storeReceipt.sort((a,b)=>a.quantity_of_goods-b.quantity_of_goods)
+console.log([...storeReceipt])
+storeReceipt.sort((a,b)=>a.product_price-b.product_price)
+console.log([...storeReceipt])
+
+console.log(storeReceipt.map((el)=>el.product_name).sort((a,b)=>a.localeCompare(b)))
+console.log(storeReceipt.map((el)=>{
+  return `${el.product_name} ${el.quantity_of_goods} штук по цене ${el.product_price} руб`
+}).sort((a,b)=>a.localeCompare(b)))
+
+const sumPrice = storeReceipt.reduce((a,el)=>a+=el.quantity_of_goods*el.product_price,0)
+console.log(sumPrice)
+const storeObject = storeReceipt.reduce((a,el)=>{
+  a[el.product_name]=el
+  return a
+},{} as any)
+console.log(storeObject)
