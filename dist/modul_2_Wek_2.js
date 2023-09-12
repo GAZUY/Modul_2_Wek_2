@@ -233,24 +233,56 @@ var group = [
 ];
 document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439.</p>");
 function listOfAudiences(arr) {
-    for (var _i = 0, arr_6 = arr; _i < arr_6.length; _i++) {
-        var el = arr_6[_i];
+    for (var _i = 0, arr_2 = arr; _i < arr_2.length; _i++) {
+        var el = arr_2[_i];
         document.write("<h3>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0438: " + el.name + "</h3><p>\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0441\u0430\u0434\u043E\u0447\u043D\u044B\u0445 \u043C\u0435\u0441\u0442: " + el.number_of_assholes + "</p><p> \u041F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\u0436\u043D\u043E\u0441\u0442\u044C \u043A \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442\u0443: " + el.faculty + "</p>");
     }
 }
 listOfAudiences(listOfAuditors);
 document.write("<hr>");
 var nameFacult = 'строймат';
-document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442\u0430.</p>");
-function facultyListOfAudiences(arr, nF, a) {
-    if (a === void 0) { a = []; }
-    for (var _i = 0, arr_7 = arr; _i < arr_7.length; _i++) {
-        var el = arr_7[_i];
-        if (el.faculty === nF) {
-        }
-        document.write("<h3>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0438: " + el.name + "</h3><p>\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0441\u0430\u0434\u043E\u0447\u043D\u044B\u0445 \u043C\u0435\u0441\u0442: " + el.number_of_assholes + "</p><p> \u041F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\u0436\u043D\u043E\u0441\u0442\u044C \u043A \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442\u0443: " + el.faculty + "</p>");
+document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442\u0430. (<b>" + nameFacult + "</b>)</p>");
+var a = [];
+a = listOfAuditors.filter(function (el) { return el.faculty == nameFacult; });
+listOfAudiences(a);
+document.write("<hr>");
+document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B:</h2>");
+function groupData(arr) {
+    for (var _i = 0, arr_3 = arr; _i < arr_3.length; _i++) {
+        var el = arr_3[_i];
+        document.write("<h3>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0433\u0440\u0443\u043F\u043F\u044B: " + el.title + "</h3><p>\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0441\u0442\u0443\u0434\u0435\u043D\u0442\u043E\u0432: " + el.livestock + "</p><p> \u0424\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442: " + el.faculty + "</p>");
     }
 }
+groupData(group);
+// let title 
+// let livestock
+// let faculty
+// for (let el of group){
+// }
+var _a = group[0], title = _a.title, livestock = _a.livestock, faculty = _a.faculty;
+console.log(faculty);
+var t = [];
+var n = [];
+var f = [];
+f = listOfAuditors.filter(function (el) { return el.faculty == faculty; });
+n = listOfAuditors.filter(function (el) { return el.number_of_assholes >= livestock; });
+t = listOfAuditors.filter(function (el) { return el.name == title; });
+document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B \u043F\u043E \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044E</h2>");
+listOfAudiences(t);
+document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443 \u043C\u0435\u0441\u0442</h2>");
+listOfAudiences(n);
+document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B \u043F\u043E \u043F\u0440\u043E\u0444\u0438\u043B\u044E</h2>");
+listOfAudiences(f);
+document.write("<hr>");
+listOfAuditors.sort(function (a, b) { return a.number_of_assholes - b.number_of_assholes; });
+document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0439 \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443 \u043C\u0435\u0441\u0442:</p>");
+listOfAudiences(__spreadArrays(listOfAuditors));
+document.write("<hr>");
+listOfAuditors.sort(function (a, b) { return a.name.localeCompare(b.name); });
+document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0439 \u043F\u043E \u0430\u043B\u0444\u0430\u0432\u0438\u0442\u0443:</p>");
+listOfAudiences(__spreadArrays(listOfAuditors));
+// document.write (`<h3>Наименование аудитории: ${el.name}</h3><p>Количество посадочных мест: ${el.number_of_assholes}</p><p> Принадлежность к факультету: ${el.faculty}</p>`)
+// facultyListOfAudiences (listOfAuditors,nameFacult)   
 /*
 document.write (`<p>${}</p>`)
 <p style="font-size: 120%; font-family: monospace; color: #cd66cc">Пример текста</p>
@@ -303,154 +335,152 @@ document.write (`<p>${}</p>`)
 С помощью написанного класса реализовать следующий блок
 и добавить его на страницу с помощью document.write().
 */
-var HtmlElement = /** @class */ (function () {
-    function HtmlElement(tag, single, text) {
-        this.atrs = [];
-        this.styles = [];
-        this.elements = [];
-        this.tag = tag;
-        this.single = single;
-        this.text = text;
-    }
-    HtmlElement.prototype.setAtr = function (atr) {
-        this.atrs.push(atr);
-    };
-    HtmlElement.prototype.setStyle = function (style) {
-        this.styles.push(style);
-    };
-    HtmlElement.prototype.appendElement = function (element) {
-        this.elements.push(element);
-    };
-    HtmlElement.prototype.prependElement = function (element) {
-        this.elements.unshift(element);
-    };
-    HtmlElement.prototype.getHtml = function () {
-        if (this.single) {
-            return "<" + this.tag + " " + this.atrs.join(' ') + " value = '" + this.text + "'>";
-        }
-        else {
-            var begin = "<" + this.tag + " " + this.atrs.join(' ') + ">" + this.text;
-            var end = "</" + this.tag + ">";
-            return begin + this.elements.map(function (el) { return el.getHtml(); }).join('') + end;
-        }
-    };
-    return HtmlElement;
-}());
-var imgElement = new HtmlElement('img', true, '');
-imgElement.setAtr('style="width:100%"');
-imgElement.setAtr('src="https://ecalc.ru/images/krug/radius.png"');
-var pElement = new HtmlElement('p', false, 'вася');
-var h3Element = new HtmlElement('h3', false, 'тормоз');
-var divElement = new HtmlElement('div', false, '');
-divElement.setAtr('style="width:300px; margin:10px"');
-var wrapperElement = new HtmlElement('div', false, '');
-wrapperElement.setAtr('id="wrapper"');
-wrapperElement.setStyle('display: flex');
-wrapperElement.setStyle('padding: 40px');
-wrapperElement.setAtr("style=\"" + wrapperElement.styles.join(';') + "\"");
-wrapperElement.appendElement(divElement);
-wrapperElement.appendElement(divElement);
-divElement.appendElement(h3Element);
-divElement.appendElement(imgElement);
-divElement.appendElement(pElement);
-console.log(wrapperElement.getHtml());
-var divPrintElements = document.querySelector('.printElements');
-if (divPrintElements)
-    divPrintElements.innerHTML = wrapperElement.getHtml();
-/*
-  Реализовать класс, который описывает css класс.
-Класс CssClass должен содержать внутри себя:
-■■ название css класса;
-■■ массив стилей;
-■■ метод для установки стиля;
-■■ метод для удаления стиля;
-■■ метод getCss(), который возвращает css код в виде стро-
-ки.
-*/
-var CssClass = /** @class */ (function () {
-    function CssClass(name) {
-        this.cssStyle = [];
-        this.name = name;
-    }
-    CssClass.prototype.addCssStyle = function (cssStyle) {
-        this.cssStyle.push(cssStyle);
-    };
-    CssClass.prototype.deleteCssStyle = function (cssStyle) {
-        var id = this.cssStyle.findIndex(function (el) { el == cssStyle; });
-        if (id != -1)
-            this.cssStyle.splice(id, 1);
-    };
-    CssClass.prototype.getCss = function () {
-        return "." + this.name + " {" + this.cssStyle.join(';') + "};";
-    };
-    return CssClass;
-}());
-var wrapCssClass = new CssClass('wrap');
-wrapCssClass.addCssStyle('display:flex');
-console.log(wrapCssClass.getCss());
-var blockCssClass = new CssClass('block');
-blockCssClass.addCssStyle('width:300px');
-blockCssClass.addCssStyle(' margin:10px');
-console.log(blockCssClass.getCss());
-/*
-Реализовать класс, описывающий блок html документ.
-Класс HtmlBlock должен содержать внутри себя:
-■■ коллекцию стилей, описанных с помощью класса CssClass;
-■■ корневой элемент, описанный с помощью класса
-HtmlElement;
-■■ метод getCode(), который возвращает строку с html ко-
-дом (сначала теги style с описанием всех классов, а потом
-все html содержимое из корневого тега и его вложенных
-элементов).
-С помощью написанных классов реализовать следующий блок
-(см. рис. 2) и добавить его на страницу с помощью document.write().*/
-var HtmlBlock = /** @class */ (function () {
-    function HtmlBlock(ArrCss) {
-        this.ArrCss = [];
-        this.HtmlElementBlock = [];
-        this.ArrCss = ArrCss;
-        // this.HtmlElementBlock = HtmlElementBlock
-    }
-    HtmlBlock.prototype.addArrCss = function (object) {
-        this.ArrCss.push(object);
-    };
-    HtmlBlock.prototype.getCode = function (Arrcss) {
-        return "<style>" + this.ArrCss + "</style>";
-    };
-    return HtmlBlock;
-}());
-//const qwe = new HtmlBlock(blockCssClass.getCss())
-var storeReceipt = [
-    {
-        product_name: 'гайка',
-        quantity_of_goods: 20,
-        product_price: 7
-    },
-    {
-        product_name: 'шайба',
-        quantity_of_goods: 15,
-        product_price: 3
-    },
-    {
-        product_name: 'болт',
-        quantity_of_goods: 35,
-        product_price: 12
-    },
-];
-storeReceipt.sort(function (a, b) { return a.product_name.localeCompare(b.product_name); });
-console.log(__spreadArrays(storeReceipt));
-storeReceipt.sort(function (a, b) { return a.quantity_of_goods - b.quantity_of_goods; });
-console.log(__spreadArrays(storeReceipt));
-storeReceipt.sort(function (a, b) { return a.product_price - b.product_price; });
-console.log(__spreadArrays(storeReceipt));
-console.log(storeReceipt.map(function (el) { return el.product_name; }).sort(function (a, b) { return a.localeCompare(b); }));
-console.log(storeReceipt.map(function (el) {
-    return el.product_name + " " + el.quantity_of_goods + " \u0448\u0442\u0443\u043A \u043F\u043E \u0446\u0435\u043D\u0435 " + el.product_price + " \u0440\u0443\u0431";
-}).sort(function (a, b) { return a.localeCompare(b); }));
-var sumPrice = storeReceipt.reduce(function (a, el) { return a += el.quantity_of_goods * el.product_price; }, 0);
-console.log(sumPrice);
-var storeObject = storeReceipt.reduce(function (a, el) {
-    a[el.product_name] = el;
-    return a;
-}, {});
-console.log(storeObject);
+// class HtmlElement {
+//     tag: string
+//     single: boolean
+//     text: string
+//     atrs: string[] = []
+//     styles: string[] = []
+//     elements: HtmlElement[] = []
+//     constructor(tag:string, single: boolean, text: string){
+//       this.tag = tag
+//       this.single = single
+//       this.text = text
+//     }
+//     setAtr(atr: string) {
+//       this.atrs.push(atr)
+//     }
+//     setStyle(style: string) {
+//       this.styles.push(style)
+//     }
+//     appendElement(element: HtmlElement) {
+//       this.elements.push(element)
+//     }
+//     prependElement(element: HtmlElement) {
+//       this.elements.unshift(element)
+//     }
+//     getHtml() {
+//       if (this.single) {
+//         return `<${this.tag} ${this.atrs.join(' ')} value = '${this.text}'>`
+//       } else {
+//         const begin = `<${this.tag} ${this.atrs.join(' ')}>${this.text}`
+//         const end = `</${this.tag}>`
+//         return begin + this.elements.map(el=>el.getHtml()).join('') + end
+//       }     
+//     }
+//   }
+//   const imgElement = new HtmlElement('img', true, '')
+//   imgElement.setAtr('style="width:100%"')
+//   imgElement.setAtr('src="https://ecalc.ru/images/krug/radius.png"')
+//   const pElement = new HtmlElement('p', false, 'вася')
+//   const h3Element = new HtmlElement('h3', false, 'тормоз')
+//   const divElement = new HtmlElement('div', false, '')
+//   divElement.setAtr('style="width:300px; margin:10px"')
+//   const wrapperElement = new HtmlElement('div', false, '')
+//   wrapperElement.setAtr('id="wrapper"')
+//   wrapperElement.setStyle('display: flex')
+//   wrapperElement.setStyle('padding: 40px')
+//   wrapperElement.setAtr(`style="${wrapperElement.styles.join(';')}"`)
+//   wrapperElement.appendElement(divElement)
+//   wrapperElement.appendElement(divElement)
+//   divElement.appendElement(h3Element)
+//   divElement.appendElement(imgElement)
+//   divElement.appendElement(pElement)
+//   console.log (wrapperElement.getHtml())
+//   const divPrintElements = document.querySelector('.printElements')
+//   if (divPrintElements) divPrintElements.innerHTML = wrapperElement.getHtml()
+// /*
+//   Реализовать класс, который описывает css класс.
+// Класс CssClass должен содержать внутри себя:
+// ■■ название css класса;
+// ■■ массив стилей;
+// ■■ метод для установки стиля;
+// ■■ метод для удаления стиля;
+// ■■ метод getCss(), который возвращает css код в виде стро-
+// ки.
+// */
+// class CssClass {
+//   name: string
+//   cssStyle: string [] = []
+//   constructor (name: string){
+//     this.name = name
+//   }
+//   addCssStyle (cssStyle) {
+//     this.cssStyle.push(cssStyle)
+//   }
+//   deleteCssStyle (cssStyle) {
+//     const id = this.cssStyle.findIndex((el) => { el == cssStyle })
+//     if (id != -1) this.cssStyle.splice(id, 1)
+//   }
+//   getCss() {
+//     return  `.${this.name} {${this.cssStyle.join(';')}};`
+//   }
+// }
+// const wrapCssClass = new CssClass('wrap')
+// wrapCssClass.addCssStyle('display:flex')
+// console.log (wrapCssClass.getCss())
+// const blockCssClass = new CssClass('block')
+// blockCssClass.addCssStyle('width:300px')
+// blockCssClass.addCssStyle(' margin:10px')
+// console.log (blockCssClass.getCss())
+// /*
+// Реализовать класс, описывающий блок html документ.
+// Класс HtmlBlock должен содержать внутри себя:
+// ■■ коллекцию стилей, описанных с помощью класса CssClass;
+// ■■ корневой элемент, описанный с помощью класса
+// HtmlElement;
+// ■■ метод getCode(), который возвращает строку с html ко-
+// дом (сначала теги style с описанием всех классов, а потом
+// все html содержимое из корневого тега и его вложенных
+// элементов).
+// С помощью написанных классов реализовать следующий блок
+// (см. рис. 2) и добавить его на страницу с помощью document.write().*/
+// class HtmlBlock {
+//   ArrCss: string[] = []
+//   HtmlElementBlock: any[] = []
+//   constructor(ArrCss: string[]){
+//     this.ArrCss = ArrCss
+//    // this.HtmlElementBlock = HtmlElementBlock
+//   }
+//   addArrCss(object){
+//     this.ArrCss.push(object)
+//   }
+//   getCode(){
+//     return`<style>${this.ArrCss}</style>`
+//   }
+// }
+// //const qwe = new HtmlBlock(blockCssClass.getCss())
+// let storeReceipt = [
+//   {
+//       product_name: 'гайка',
+//       quantity_of_goods: 20,
+//       product_price: 7
+//   },
+//   {
+//       product_name: 'шайба',
+//       quantity_of_goods: 15,
+//       product_price: 3
+//   },
+//   {
+//       product_name: 'болт',
+//       quantity_of_goods: 35,
+//       product_price: 12
+//   },
+// ] as Record<string,any>[]
+// storeReceipt.sort((a,b)=>a.product_name.localeCompare(b.product_name))
+// console.log([...storeReceipt])
+// storeReceipt.sort((a,b)=>a.quantity_of_goods-b.quantity_of_goods)
+// console.log([...storeReceipt])
+// storeReceipt.sort((a,b)=>a.product_price-b.product_price)
+// console.log([...storeReceipt])
+// console.log(storeReceipt.map((el)=>el.product_name).sort((a,b)=>a.localeCompare(b)))
+// console.log(storeReceipt.map((el)=>{
+//   return `${el.product_name} ${el.quantity_of_goods} штук по цене ${el.product_price} руб`
+// }).sort((a,b)=>a.localeCompare(b)))
+// const sumPrice = storeReceipt.reduce((a,el)=>a+=el.quantity_of_goods*el.product_price,0)
+// console.log(sumPrice)
+// const storeObject = storeReceipt.reduce((a,el)=>{
+//   a[el.product_name]=el
+//   return a
+// },{} as any)
+// console.log(storeObject)
