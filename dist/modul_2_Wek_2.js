@@ -1,10 +1,3 @@
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 document.write("<p>\u0417\u0430\u0434\u0430\u043D\u0438\u0435 1</p>");
 document.write("<p>\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043C\u0430\u0441\u0441\u0438\u0432 \u00AB\u0421\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043A\u0443\u043F\u043E\u043A\u00BB. \u041A\u0430\u0436\u0434\u044B\u0439 \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u043C\u0430\u0441\u0441\u0438\u0432\u0430 \u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u043E\u0431\u044A\u0435\u043A\u0442\u043E\u043C, \n\u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u0430, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0438 \u043A\u0443\u043F\u043B\u0435\u043D \u0438\u043B\u0438 \u043D\u0435\u0442. \u041D\u0430\u043F\u0438\u0441\u0430\u0442\u044C \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0444\u0443\u043D\u043A-\n\u0446\u0438\u0439 \u0434\u043B\u044F \u0440\u0430\u0431\u043E\u0442\u044B \u0441 \u0442\u0430\u043A\u0438\u043C \u043C\u0430\u0441\u0441\u0438\u0432\u043E\u043C.</p>");
 document.write("<p>1 \u0412\u044B\u0432\u043E\u0434 \u0432\u0441\u0435\u0433\u043E \u0441\u043F\u0438\u0441\u043A\u0430 \u043D\u0430 \u044D\u043A\u0440\u0430\u043D \u0442\u0430\u043A\u0438\u043C \u043E\u0431\u0440\u0430\u0437\u043E\u043C, \u0447\u0442\u043E\u0431\u044B \u0441\u043D\u0430\u0447\u0430\u043B\u0430\n\u0448\u043B\u0438 \u043D\u0435\u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0435 \u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B, \u0430 \u043F\u043E\u0442\u043E\u043C \u2013 \u043A\u0443\u043F\u043B\u0435\u043D\u043D\u044B\u0435.</p>");
@@ -224,34 +217,31 @@ var listOfAuditors = [
         faculty: 'строймат'
     },
 ];
-var group = [
-    {
-        title: 'веб-дизайн',
-        livestock: 14,
-        faculty: 'информатика'
-    }
-];
-document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439.</p>");
+var group = {
+    title: 'веб-дизайн',
+    livestock: 14,
+    faculty: 'информатика'
+};
 function listOfAudiences(arr) {
+    document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439.</p>");
     for (var _i = 0, arr_2 = arr; _i < arr_2.length; _i++) {
         var el = arr_2[_i];
         document.write("<h3>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0438: " + el.name + "</h3><p>\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043F\u043E\u0441\u0430\u0434\u043E\u0447\u043D\u044B\u0445 \u043C\u0435\u0441\u0442: " + el.number_of_assholes + "</p><p> \u041F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\u0436\u043D\u043E\u0441\u0442\u044C \u043A \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442\u0443: " + el.faculty + "</p>");
     }
+    document.write("<hr>");
 }
 listOfAudiences(listOfAuditors);
-document.write("<hr>");
 var nameFacult = 'строймат';
 document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0433\u043E \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442\u0430. (<b>" + nameFacult + "</b>)</p>");
 var a = [];
 a = listOfAuditors.filter(function (el) { return el.faculty == nameFacult; });
 listOfAudiences(a);
-document.write("<hr>");
-document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B:</h2>");
-function groupData(arr) {
-    for (var _i = 0, arr_3 = arr; _i < arr_3.length; _i++) {
-        var el = arr_3[_i];
-        document.write("<h3>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0433\u0440\u0443\u043F\u043F\u044B: " + el.title + "</h3><p>\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0441\u0442\u0443\u0434\u0435\u043D\u0442\u043E\u0432: " + el.livestock + "</p><p> \u0424\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442: " + el.faculty + "</p>");
-    }
+function groupData(group) {
+    document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B:</h2>");
+    document.write("<h3>\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u0433\u0440\u0443\u043F\u043F\u044B: " + group.title + "</h3><p>\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0441\u0442\u0443\u0434\u0435\u043D\u0442\u043E\u0432: " + group.livestock + "</p><p> \u0424\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442: " + group.faculty + "</p>");
+    document.write("<hr>");
+    var audit = listOfAuditors.filter(function (el) { return el.faculty == group.faculty && el.number_of_assholes >= group.livestock; });
+    listOfAudiences(audit);
 }
 groupData(group);
 // let title 
@@ -259,14 +249,9 @@ groupData(group);
 // let faculty
 // for (let el of group){
 // }
-var _a = group[0], title = _a.title, livestock = _a.livestock, faculty = _a.faculty;
-console.log(faculty);
-var t = [];
-var n = [];
-var f = [];
-f = listOfAuditors.filter(function (el) { return el.faculty == faculty; });
-n = listOfAuditors.filter(function (el) { return el.number_of_assholes >= livestock; });
-t = listOfAuditors.filter(function (el) { return el.name == title; });
+var f = listOfAuditors.filter(function (el) { return el.faculty == group.faculty; });
+var n = listOfAuditors.filter(function (el) { return el.number_of_assholes >= group.livestock; });
+var t = listOfAuditors.filter(function (el) { return el.name == group.title; });
 document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B \u043F\u043E \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u044E</h2>");
 listOfAudiences(t);
 document.write("<h2>\u0421\u043F\u0438\u0441\u043A\u0438 \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0434\u043B\u044F \u0433\u0440\u0443\u043F\u043F\u044B \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443 \u043C\u0435\u0441\u0442</h2>");
@@ -276,11 +261,11 @@ listOfAudiences(f);
 document.write("<hr>");
 listOfAuditors.sort(function (a, b) { return a.number_of_assholes - b.number_of_assholes; });
 document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0439 \u043F\u043E \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0443 \u043C\u0435\u0441\u0442:</p>");
-listOfAudiences(__spreadArrays(listOfAuditors));
+listOfAudiences(listOfAuditors);
 document.write("<hr>");
 listOfAuditors.sort(function (a, b) { return a.name.localeCompare(b.name); });
 document.write("<p>1 \u0421\u043F\u0438\u0441\u043E\u043A \u0430\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u0439 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0439 \u043F\u043E \u0430\u043B\u0444\u0430\u0432\u0438\u0442\u0443:</p>");
-listOfAudiences(__spreadArrays(listOfAuditors));
+listOfAudiences(listOfAuditors);
 // document.write (`<h3>Наименование аудитории: ${el.name}</h3><p>Количество посадочных мест: ${el.number_of_assholes}</p><p> Принадлежность к факультету: ${el.faculty}</p>`)
 // facultyListOfAudiences (listOfAuditors,nameFacult)   
 /*

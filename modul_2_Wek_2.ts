@@ -243,23 +243,21 @@ const listOfAuditors: any[] = [
 
   },
 ]
-const group: any[] = [
-  {
-    title: 'веб-дизайн',
-    livestock: 14,
-    faculty: 'информатика'
-  }
-]
+const group = {
+  title: 'веб-дизайн',
+  livestock: 14,
+  faculty: 'информатика'
+}
 
-document.write (`<p>1 Список аудиторий.</p>`)
 function listOfAudiences (arr:any[]) {
-    for (let el of arr) {
-        document.write (`<h3>Наименование аудитории: ${el.name}</h3><p>Количество посадочных мест: ${el.number_of_assholes}</p><p> Принадлежность к факультету: ${el.faculty}</p>`)
-    }  
+  document.write (`<p>1 Список аудиторий.</p>`)
+  for (let el of arr) {
+    document.write (`<h3>Наименование аудитории: ${el.name}</h3><p>Количество посадочных мест: ${el.number_of_assholes}</p><p> Принадлежность к факультету: ${el.faculty}</p>`)
+  }  
+  document.write (`<hr>`)
 }
 listOfAudiences (listOfAuditors)
 
-document.write (`<hr>`)
 
 let nameFacult: string = 'строймат'
 document.write (`<p>1 Список аудиторий для указанного факультета. (<b>${nameFacult}</b>)</p>`)
@@ -267,29 +265,25 @@ let a: any = []
 a = listOfAuditors.filter(function(el){return el.faculty == nameFacult})
 listOfAudiences (a)
 
-document.write (`<hr>`)
 
-document.write (`<h2>Списки аудиторий для группы:</h2>`)
-function groupData (arr:any[]) {
-  for (let el of arr) {
-     document.write (`<h3>Наименование группы: ${el.title}</h3><p>Количество студентов: ${el.livestock}</p><p> Факультет: ${el.faculty}</p>`)
-  }  
+
+function groupData(group:any) {
+  document.write (`<h2>Списки аудиторий для группы:</h2>`)
+  document.write (`<h3>Наименование группы: ${group.title}</h3><p>Количество студентов: ${group.livestock}</p><p> Факультет: ${group.faculty}</p>`)
+  document.write (`<hr>`)
+  let audit = listOfAuditors.filter(function(el){return el.faculty == group.faculty && el.number_of_assholes >= group.livestock })
+  listOfAudiences (audit)
 }
-groupData (group)
+groupData(group)
 // let title 
 // let livestock
 // let faculty
 // for (let el of group){
   
 // }
-let { title, livestock, faculty} = group[0]
-console.log (faculty)
-let t: any = []
-let n: any = []
-let f: any = []
-f = listOfAuditors.filter(function(el){return el.faculty == faculty })
-n = listOfAuditors.filter(function(el){return el.number_of_assholes >= livestock })
-t = listOfAuditors.filter(function(el){return el.name == title })
+let f = listOfAuditors.filter(function(el){return el.faculty == group.faculty })
+let n = listOfAuditors.filter(function(el){return el.number_of_assholes >= group.livestock })
+let t = listOfAuditors.filter(function(el){return el.name == group.title })
 document.write (`<h2>Списки аудиторий для группы по названию</h2>`)
 listOfAudiences (t)
 document.write (`<h2>Списки аудиторий для группы по количеству мест</h2>`)
@@ -300,12 +294,12 @@ document.write (`<hr>`)
 
 listOfAuditors.sort((a,b)=>a.number_of_assholes-b.number_of_assholes)
 document.write (`<p>1 Список аудиторий расположенный по количеству мест:</p>`)
-listOfAudiences([...listOfAuditors])
+listOfAudiences(listOfAuditors)
 document.write (`<hr>`)
 
 listOfAuditors.sort((a,b)=>a.name.localeCompare(b.name))
 document.write (`<p>1 Список аудиторий расположенный по алфавиту:</p>`)
-listOfAudiences([...listOfAuditors])
+listOfAudiences(listOfAuditors)
 
 
  
